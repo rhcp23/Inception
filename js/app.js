@@ -116,10 +116,8 @@ function toggleItem(id) {
 
     item.completed = !item.completed;
     
-    // If checking parent, check all children
-    if (item.completed) {
-        setChildrenCompleted(item, true);
-    }
+    // Always set all children to match parent's state
+    setChildrenCompleted(item, item.completed);
     
     // Update parent completion status
     updateParentCompletion();
